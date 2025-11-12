@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trường THPT Ái Quốc - Học để thay đổi tương lai. Trường THPT hàng đầu tại Hà Nội">
+    <title>Trường THPT Ái Quốc - Hà Nội</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --light-blue: #dbeafe;
+            --dark-blue: #1e3a8a;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        h1 { font-size: 2.5rem; font-weight: 700; line-height: 1.2; }
+        h2 { font-size: 2rem; font-weight: 700; line-height: 1.3; }
+        h3 { font-size: 1.5rem; font-weight: 600; line-height: 1.4; }
+        h4 { font-size: 1.25rem; font-weight: 600; line-height: 1.4; }
+        p { font-size: 1rem; line-height: 1.6; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            h3 { font-size: 1.25rem; }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .logo-text h3 {
+            color: var(--dark-blue);
+            margin: 0;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            margin: 0;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        @media (max-width: 1024px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 1rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .logo-text {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.95), rgba(59, 130, 246, 0.85)),
+                        url('https://images.unsplash.com/photo-1603958956194-cf9718dba4b1?w=1920') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-logo svg {
+            width: 70px;
+            height: 70px;
+            fill: var(--primary-blue);
+        }
+
+        .hero h1 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .hero-motto {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-blue);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid white;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .scroll-indicator::after {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 10px;
+            background: white;
+            border-radius: 3px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .section-header::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-blue);
+            margin: 1rem auto;
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        #gioi-thieu {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .about-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--secondary-blue);
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .about-icon svg {
+            width: 35px;
+            height: 35px;
+            fill: var(--primary-blue);
+        }
+
+        .about-card h3 {
+            text-align: center;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .about-card p {
+            text-align: center;
+            color: var(--text-gray);
+        }
+
+        /* Programs Section */
+        #chuong-trinh {
+            background: var(--bg-light);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid;
+        }
+
+        .program-card:nth-child(1) {
+            border-top-color: #10b981;
+        }
+
+        .program-card:nth-child(2) {
+            border-top-color: #f59e0b;
+        }
+
+        .program-card:nth-child(3) {
+            border-top-color: #8b5cf6;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .program-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .program-card:nth-child(1) .program-icon {
+            background: #d1fae5;
+        }
+
+        .program-card:nth-child(2) .program-icon {
+            background: #fed7aa;
+        }
+
+        .program-card:nth-child(3) .program-icon {
+            background: #e9d5ff;
+        }
+
+        .program-icon svg {
+            width: 45px;
+            height: 45px;
+        }
+
+        .program-card h3 {
+            text-align: center;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .program-card p {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .program-subjects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .subject-tag {
+            background: var(--bg-light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-dark);
+        }
+
+        /* Facilities Section */
+        #co-so-vat-chat {
+            background: white;
+        }
+
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .facility-card {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            aspect-ratio: 16/9;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .facility-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .facility-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .facility-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .facility-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(30, 64, 175, 0.95), rgba(30, 64, 175, 0.6), transparent);
+            padding: 2rem 1.5rem 1.5rem;
+            color: white;
+        }
+
+        .facility-overlay h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .facility-overlay p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* News Carousel */
+        #tin-tuc {
+            background: linear-gradient(135deg, var(--light-blue), white);
+        }
+
+        .carousel-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .carousel-wrapper {
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            background: white;
+        }
+
+        .slide-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .slide-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .slide-text {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide-date {
+            color: var(--secondary-blue);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .slide-text h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .slide-text p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--secondary-blue);
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--secondary-blue);
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-blue);
+            color: white;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-nav:hover {
+            background: white;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .carousel-nav.prev {
+            left: 1rem;
+        }
+
+        .carousel-nav.next {
+            right: 1rem;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            width: 30px;
+            border-radius: 5px;
+            background: var(--secondary-blue);
+        }
+
+        @media (max-width: 768px) {
+            .slide-content {
+                grid-template-columns: 1fr;
+            }
+
+            .slide-image {
+                height: 250px;
+            }
+
+            .slide-text {
+                padding: 2rem;
+            }
+        }
+
+        /* Admissions Section */
+        #tuyen-sinh {
+            background: white;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .step-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .step-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--primary-blue);
+        }
+
+        .step-card h4 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-card p {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        .tuition-table {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .tuition-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .tuition-table thead {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .tuition-table th,
+        .tuition-table td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+        }
+
+        .tuition-table tbody tr {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .tuition-table tbody tr:hover {
+            background: var(--bg-light);
+        }
+
+        .tuition-note {
+            background: var(--bg-light);
+            padding: 1rem 1.5rem;
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        .admission-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--primary-blue);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: var(--dark-blue);
+        }
+
+        /* Teachers Section */
+        #giao-vien {
+            background: var(--bg-light);
+        }
+
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .teacher-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .teacher-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+
+        .teacher-info {
+            padding: 1.5rem;
+        }
+
+        .teacher-subject {
+            display: inline-block;
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 0.3rem 0.8rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .teacher-info h3 {
+            color: var(--dark-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .teacher-detail {
+            display: flex;
+            align-items: start;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        .teacher-detail svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Contact Section */
+        #lien-he {
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary-blue);
+        }
+
+        .contact-details h4 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 64, 175, 0.3);
+        }
+
+        .social-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .map-container {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            height: 500px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                height: 350px;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: white;
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--primary-blue);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .mb-4 { margin-bottom: 2rem; }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3L1 9L5 11.18V17.18L12 21L19 17.18V11.18L21 10.09V17H23V9L12 3M18.82 9L12 12.72L5.18 9L12 5.28L18.82 9M17 16L12 18.72L7 16V12.27L12 15L17 12.27V16Z"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <h3>THPT Ái Quốc</h3>
+                    <p>Học để thay đổi tương lai</p>
+                </div>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#gioi-thieu">Giới thiệu</a></li>
+                <li><a href="#chuong-trinh">Chương trình</a></li>
+                <li><a href="#co-so-vat-chat">Cơ sở vật chất</a></li>
+                <li><a href="#tin-tuc">Tin tức</a></li>
+                <li><a href="#tuyen-sinh">Tuyển sinh</a></li>
+                <li><a href="#giao-vien">Giáo viên</a></li>
+                <li><a href="#lien-he">Liên hệ</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3L1 9L5 11.18V17.18L12 21L19 17.18V11.18L21 10.09V17H23V9L12 3M18.82 9L12 12.72L5.18 9L12 5.28L18.82 9M17 16L12 18.72L7 16V12.27L12 15L17 12.27V16Z"/>
+                </svg>
+            </div>
+            <h1>Trường THPT Ái Quốc</h1>
+            <p class="hero-subtitle">Thành phố Hà Nội</p>
+            <p class="hero-motto">"Học để thay đổi tương lai"</p>
+            <a href="#lien-he" class="btn-primary">Đăng ký tư vấn</a>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="gioi-thieu">
+        <div class="container">
+            <div class="section-header">
+                <h2>Giới thiệu về trường</h2>
+                <p>Môi trường giáo dục chất lượng cao, phát triển toàn diện</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M13,2.05V5.08C16.39,5.57 19,8.47 19,12C19,12.9 18.82,13.75 18.5,14.54L21.12,16.07C21.68,14.83 22,13.45 22,12C22,6.82 18.05,2.55 13,2.05M12,19C8.13,19 5,15.87 5,12C5,8.47 7.61,5.57 11,5.08V2.05C5.94,2.55 2,6.81 2,12A10,10 0 0,0 12,22C15.3,22 18.23,20.39 20.05,17.91L17.45,16.38C16.17,18 14.21,19 12,19Z"/>
+                        </svg>
+                    </div>
+                    <h3>Lịch sử hình thành</h3>
+                    <p>Được thành lập năm 1995, Trường THPT Ái Quốc là một trong những ngôi trường tiên phong trong giáo dục phổ thông tại Hà Nội. Với hơn 28 năm xây dựng và phát triển, trường đã đào tạo hàng nghìn học sinh xuất sắc, góp phần vào sự phát triển của đất nước.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12C20,14.4 19,16.5 17.3,18C15.9,16.7 14,16 12,16C10,16 8.2,16.7 6.7,18C5,16.5 4,14.4 4,12A8,8 0 0,1 12,4M14,5.89C13.62,5.9 13.26,6.15 13.1,6.54L11.81,9.77L8.45,10.25C8.05,10.31 7.72,10.59 7.59,10.97C7.45,11.36 7.54,11.78 7.83,12.08L10.29,14.5L9.73,17.96C9.65,18.36 9.8,18.78 10.14,19.04C10.5,19.29 10.93,19.32 11.36,19.1L14.5,17.5L17.64,19.1C18.07,19.32 18.5,19.29 18.86,19.04C19.2,18.78 19.35,18.36 19.27,17.96L18.71,14.5L21.17,12.08C21.46,11.78 21.55,11.36 21.41,10.97C21.28,10.59 20.95,10.31 20.55,10.25L17.19,9.77L15.9,6.54C15.75,6.15 15.38,5.9 15,5.89C14.66,5.88 14.33,6.04 14.12,6.35L12,9.5L9.88,6.35C9.67,6.04 9.34,5.88 9,5.89C8.62,5.9 8.26,6.15 8.1,6.54"/>
+                        </svg>
+                    </div>
+                    <h3>Tầm nhìn - Sứ mệnh</h3>
+                    <p>Xây dựng trường THPT Ái Quốc trở thành trường trọng điểm quốc gia, môi trường giáo dục toàn diện, phát triển năng lực học sinh theo tiêu chuẩn quốc tế. Đào tạo thế hệ công dân toàn cầu có trách nhiệm, sáng tạo và nhân văn.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+                        </svg>
+                    </div>
+                    <h3>Thông điệp hiệu trưởng</h3>
+                    <p>"Chúng tôi cam kết mang đến cho mỗi học sinh một hành trình học tập ý nghĩa, nơi các em không chỉ tiếp thu kiến thức mà còn phát triển kỹ năng sống, rèn luyện nhân cách và khám phá tiềm năng của bản thân."</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--primary-blue); text-align: center;">- TS. Nguyễn Văn A, Hiệu trưởng</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="chuong-trinh">
+        <div class="container">
+            <div class="section-header">
+                <h2>Chương trình đào tạo</h2>
+                <p>Ba chương trình chất lượng cao, đáp ứng đa dạng nhu cầu học tập</p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-icon">
+                        <svg viewBox="0 0 24 24" fill="#10b981">
+                            <path d="M19,21V19H15V21H13V17H17A2,2 0 0,0 19,15V11A2,2 0 0,0 17,9H13V7H19V5H15V3H13V7H9V5H7V9H9V11H7V15H9V19H7V21H9V17H13V21H15M13,11V9H17V11H13M9,15V11H11V15H9Z"/>
+                        </svg>
+                    </div>
+                    <h3>Khoa học Tự nhiên</h3>
+                    <p>Chương trình chuyên sâu về Toán, Lý, Hóa, Sinh học. Phù hợp cho học sinh có năng khiếu và định hướng theo ngành khoa học, công nghệ, y dược.</p>
+                    <div class="program-subjects">
+                        <span class="subject-tag">Toán học</span>
+                        <span class="subject-tag">Vật lý</span>
+                        <span class="subject-tag">Hóa học</span>
+                        <span class="subject-tag">Sinh học</span>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">
+                        <svg viewBox="0 0 24 24" fill="#f59e0b">
+                            <path d="M19,2L14,6.5V17.5L19,13V2M6.5,5C4.55,5 2.45,5.4 1,6.5V21.16C1,21.41 1.25,21.66 1.5,21.66C1.6,21.66 1.65,21.59 1.75,21.59C3.1,20.94 5.05,20.5 6.5,20.5C8.45,20.5 10.55,20.9 12,22C13.35,21.15 15.8,20.5 17.5,20.5C19.15,20.5 20.85,20.81 22.25,21.56C22.35,21.61 22.4,21.59 22.5,21.59C22.75,21.59 23,21.34 23,21.09V6.5C22.4,6.05 21.75,5.75 21,5.5V18.5C19.9,18.15 18.7,18 17.5,18C15.8,18 13.35,18.65 12,19.5V8C10.55,6.85 8.45,6.5 6.5,6.5V5Z"/>
+                        </svg>
+                    </div>
+                    <h3>Khoa học Xã hội</h3>
+                    <p>Chương trình tập trung vào Văn, Sử, Địa, Tiếng Anh. Định hướng cho các ngành nhân văn, luật, kinh tế, ngoại giao.</p>
+                    <div class="program-subjects">
+                        <span class="subject-tag">Ngữ văn</span>
+                        <span class="subject-tag">Lịch sử</span>
+                        <span class="subject-tag">Địa lý</span>
+                        <span class="subject-tag">Tiếng Anh</span>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">
+                        <svg viewBox="0 0 24 24" fill="#8b5cf6">
+                            <path d="M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                        </svg>
+                    </div>
+                    <h3>Chương trình Quốc tế</h3>
+                    <p>Giảng dạy song ngữ Việt-Anh, tích hợp chuẩn quốc tế. Cơ hội liên kết với các trường đại học nước ngoài.</p>
+                    <div class="program-subjects">
+                        <span class="subject-tag">English</span>
+                        <span class="subject-tag">Math</span>
+                        <span class="subject-tag">Science</span>
+                        <span class="subject-tag">Social Studies</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="co-so-vat-chat">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cơ sở vật chất</h2>
+                <p>Môi trường học tập hiện đại, đầy đủ tiện nghi</p>
+            </div>
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600" alt="Phòng học">
+                    <div class="facility-overlay">
+                        <h3>Phòng học hiện đại</h3>
+                        <p>Phòng học được trang bị đầy đủ thiết bị hiện đại</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="https://images.unsplash.com/photo-1602052577122-f73b9710adba?w=600" alt="Phòng thí nghiệm">
+                    <div class="facility-overlay">
+                        <h3>Phòng thí nghiệm</h3>
+                        <p>Phòng thí nghiệm Vật lý, Hóa học, Sinh học chuẩn quốc tế</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="https://images.unsplash.com/photo-1568667256531-7d5ac92eaa7a?w=600" alt="Thư viện">
+                    <div class="facility-overlay">
+                        <h3>Thư viện</h3>
+                        <p>Kho tàng sách phong phú với hơn 20,000 đầu sách</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="https://images.unsplash.com/photo-1582765974199-34f88f3c8bb4?w=600" alt="Sân thể thao">
+                    <div class="facility-overlay">
+                        <h3>Sân thể thao</h3>
+                        <p>Sân bóng đá, bóng rổ, bóng chuyền tiêu chuẩn</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="https://images.unsplash.com/photo-1675999656701-c141e77262c2?w=600" alt="Nhà ăn">
+                    <div class="facility-overlay">
+                        <h3>Nhà ăn</h3>
+                        <p>Nhà ăn rộng rãi, đảm bảo vệ sinh an toàn thực phẩm</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="https://images.unsplash.com/photo-1749900075879-5b8fd33be4f5?w=600" alt="Hội trường">
+                    <div class="facility-overlay">
+                        <h3>Hội trường</h3>
+                        <p>Hội trường 500 chỗ ngồi, âm thanh ánh sáng chuyên nghiệp</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Carousel -->
+    <section id="tin-tuc">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tin tức & Sự kiện</h2>
+                <p>Cập nhật những thông tin mới nhất về hoạt động của trường</p>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-slides" id="carouselSlides">
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                <img src="https://images.unsplash.com/photo-1719408938150-f1a14ca4ca55?w=800" alt="News 1" class="slide-image">
+                                <div class="slide-text">
+                                    <div class="slide-date">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z"/>
+                                        </svg>
+                                        05/09/2024
+                                    </div>
+                                    <h3>Lễ khai giảng năm học 2024-2025</h3>
+                                    <p>Lễ khai giảng năm học mới với sự tham gia của toàn thể thầy cô và học sinh. Nhiều hoạt động ý nghĩa đã được tổ chức.</p>
+                                    <a href="#" class="btn-secondary">Đọc thêm →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                <img src="https://images.unsplash.com/photo-1759456629068-205f242feccd?w=800" alt="News 2" class="slide-image">
+                                <div class="slide-text">
+                                    <div class="slide-date">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z"/>
+                                        </svg>
+                                        15/10/2024
+                                    </div>
+                                    <h3>Hội thảo định hướng nghề nghiệp 2024</h3>
+                                    <p>Chương trình tư vấn định hướng nghề nghiệp với sự tham gia của các chuyên gia từ nhiều lĩnh vực khác nhau.</p>
+                                    <a href="#" class="btn-secondary">Đọc thêm →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                <img src="https://images.unsplash.com/photo-1758270705172-07b53627dfcb?w=800" alt="News 3" class="slide-image">
+                                <div class="slide-text">
+                                    <div class="slide-date">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z"/>
+                                        </svg>
+                                        22/10/2024
+                                    </div>
+                                    <h3>Đạt giải Nhất Olympic Toán toàn quốc</h3>
+                                    <p>Học sinh Nguyễn Văn B lớp 12A1 đã xuất sắc giành giải Nhất kỳ thi Olympic Toán học toàn quốc năm 2024.</p>
+                                    <a href="#" class="btn-secondary">Đọc thêm →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800" alt="News 4" class="slide-image">
+                                <div class="slide-text">
+                                    <div class="slide-date">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z"/>
+                                        </svg>
+                                        05/11/2024
+                                    </div>
+                                    <h3>Ngày hội văn hóa quốc tế</h3>
+                                    <p>Sự kiện văn hóa đa sắc màu với nhiều hoạt động thú vị, giúp học sinh tìm hiểu về các nền văn hóa trên thế giới.</p>
+                                    <a href="#" class="btn-secondary">Đọc thêm →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-nav prev" onclick="moveSlide(-1)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"/>
+                    </svg>
+                </button>
+                <button class="carousel-nav next" onclick="moveSlide(1)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/>
+                    </svg>
+                </button>
+                <div class="carousel-indicators" id="carouselIndicators"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions Section -->
+    <section id="tuyen-sinh">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tuyển sinh</h2>
+                <p>Thông tin tuyển sinh và quy trình đăng ký nhập học</p>
+            </div>
+
+            <!-- Enrollment Steps -->
+            <h3 class="text-center mb-4">Quy trình tuyển sinh</h3>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                        </svg>
+                    </div>
+                    <h4>Nộp hồ sơ</h4>
+                    <p>Điền form đăng ký hoặc nộp hồ sơ trực tiếp tại trường</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16,13C15.71,13 15.38,13 15.03,13.05C16.19,13.89 17,15 17,16.5V19H23V16.5C23,14.17 18.33,13 16,13M8,13C5.67,13 1,14.17 1,16.5V19H15V16.5C15,14.17 10.33,13 8,13M8,11A3,3 0 0,0 11,8A3,3 0 0,0 8,5A3,3 0 0,0 5,8A3,3 0 0,0 8,11M16,11A3,3 0 0,0 19,8A3,3 0 0,0 16,5A3,3 0 0,0 13,8A3,3 0 0,0 16,11Z"/>
+                        </svg>
+                    </div>
+                    <h4>Phỏng vấn</h4>
+                    <p>Tham gia buổi phỏng vấn và thi đầu vào</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M7,7H17V5H19V19H5V5H7V7M7.5,13.5L9,12L11,14L15.5,9.5L17,11L11,17L7.5,13.5Z"/>
+                        </svg>
+                    </div>
+                    <h4>Xét duyệt</h4>
+                    <p>Nhà trường xem xét hồ sơ và công bố kết quả</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
+                        </svg>
+                    </div>
+                    <h4>Nhập học</h4>
+                    <p>Hoàn tất thủ tục và chính thức trở thành học sinh</p>
+                </div>
+            </div>
+
+            <!-- Tuition Table -->
+            <h3 class="text-center mb-4" style="margin-top: 4rem;">Học phí năm học 2024-2025</h3>
+            <div class="tuition-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Chương trình</th>
+                            <th>Học phí/tháng</th>
+                            <th>Học phí/năm</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Khoa học Tự nhiên</td>
+                            <td>2.500.000 VNĐ</td>
+                            <td>25.000.000 VNĐ</td>
+                        </tr>
+                        <tr>
+                            <td>Khoa học Xã hội</td>
+                            <td>2.500.000 VNĐ</td>
+                            <td>25.000.000 VNĐ</td>
+                        </tr>
+                        <tr>
+                            <td>Chương trình Quốc tế</td>
+                            <td>4.500.000 VNĐ</td>
+                            <td>45.000.000 VNĐ</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="tuition-note">
+                    <p>* Học phí đã bao gồm: Học phí, sách giáo khoa, đồng phục, bảo hiểm học sinh</p>
+                    <p>* Miễn giảm học phí cho học sinh có hoàn cảnh khó khăn và học sinh đạt thành tích cao</p>
+                </div>
+            </div>
+
+            <!-- Application Form -->
+            <h3 class="text-center mb-4" style="margin-top: 4rem;">Đăng ký tư vấn tuyển sinh</h3>
+            <div class="admission-form">
+                <form action="https://formspree.io/f/your-form-id" method="POST" id="admissionForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="studentName">Họ và tên học sinh *</label>
+                            <input type="text" id="studentName" name="studentName" required placeholder="Nguyễn Văn A">
+                        </div>
+                        <div class="form-group">
+                            <label for="birthDate">Ngày sinh *</label>
+                            <input type="date" id="birthDate" name="birthDate" required>
+                        </div>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="phone">Số điện thoại *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="0912345678">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="email@example.com">
+                        </div>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="parentName">Họ tên phụ huynh *</label>
+                            <input type="text" id="parentName" name="parentName" required placeholder="Nguyễn Thị B">
+                        </div>
+                        <div class="form-group">
+                            <label for="parentPhone">SĐT phụ huynh *</label>
+                            <input type="tel" id="parentPhone" name="parentPhone" required placeholder="0987654321">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="program">Chương trình quan tâm *</label>
+                        <select id="program" name="program" required>
+                            <option value="">Chọn chương trình</option>
+                            <option value="natural">Khoa học Tự nhiên</option>
+                            <option value="social">Khoa học Xã hội</option>
+                            <option value="international">Chương trình Quốc tế</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Câu hỏi hoặc ghi chú</label>
+                        <textarea id="message" name="message" placeholder="Nội dung bạn muốn tư vấn..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Gửi đăng ký</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teachers Section -->
+    <section id="giao-vien">
+        <div class="container">
+            <div class="section-header">
+                <h2>Đội ngũ giáo viên</h2>
+                <p>Giáo viên giàu kinh nghiệm, tâm huyết và chuyên môn cao</p>
+            </div>
+            <div class="teachers-grid">
+                <div class="teacher-card">
+                    <img src="https://images.unsplash.com/photo-1740153204804-200310378f2f?w=500" alt="Teacher 1" class="teacher-image">
+                    <div class="teacher-info">
+                        <span class="teacher-subject">Toán học</span>
+                        <h3>TS. Nguyễn Thị Lan</h3>
+                        <div class="teacher-detail">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+                            </svg>
+                            <span>Tiến sĩ Toán học, ĐH Quốc gia Hà Nội</span>
+                        </div>
+                        <div class="teacher-detail">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16,17V19H2V17S2,13 9,13 16,17 16,17M12.5,7.5A3.5,3.5 0 0,1 9,11A3.5,3.5 0 0,1 5.5,7.5A3.5,3.5 0 0,1 9,4A3.5,3.5 0 0,1 12.5,7.5M15.94,13A5.32,5.32 0 0,1 18,17V19H22V17S22,13.37 15.94,13M15,4A3.39,3.39 0 0,0 13.07,4.59A5,5 0 0,1 13.07,10.41A3.39,3.39 0 0,0 15,11A3.5,3.5 0 0,0 18.5,7.5A3.5,3.5 0 0,0 15,4Z"/>
+                            </svg>
+                            <span>Giáo viên dạy giỏi cấp Thành phố 5 năm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <img src="https://images.unsplash.com/photo-1584554376766-ac0f2c65e949?w=500" alt="Teacher 2" class="teacher-image">
+                    <div class="teacher-info">
+                        <span class="teacher-subject">Vật lý</span>
+                        <h3>ThS. Trần Văn Minh</h3>
+                        <div class="teacher-detail">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+                            </svg>
+                            <span>Thạc sĩ Vật lý, ĐH Sư phạm Hà Nội</span>
+                        </div>
+                        <div class="teacher-detail">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16,17V19H2V17S2,13 9,13 16,17 16,17M12.5,7.5A3.5,3.5 0 0,1 9,11A3.5,3.5 0 0,1 5.5,7.5A3.5,3.5 0 0,1 9,4A3.5,3.5 0 0,1 12.5,7.5M15.94,13A5.32,5.32 0 0,1 18,17V19H22V17S22,13.37 15.94,13M15,4A3.39,3.39 0 0,0 13.07,4.59A5,5 0 0,1 13.07,10.41A3.39,3.39 0 0,0 15,11A3.5,3.5 0 0,0 18.5,7.5A3.5,3.5 0 0,0 15,4Z"/>
+                            </svg>
+                            <span>Huấn luyện HS đạt giải Olympic Vật lý quốc gia</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <img src="https://images.unsplash.com/photo-1544972917-3529b113a469?w=500" alt="Teacher 3" class="teacher-image">
+                    <div class="teacher-info">
+                        <span class="teacher-subject">Ngữ văn</span>
+                        <h3>Cô Phạm Thu Hà</h3>
+                        <div class="teacher-detail">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+                            </svg>
+                            <span>Thạc sĩ Ngữ văn, ĐH KHXH&NV</span>
+                        </div>
+                        <div class="teacher-detail">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16,17V19H2V17S2,13 9,13 16,17 16,17M12.5,7.5A3.5,3.5 0 0,1 9,11A3.5,3.5 0 0,1 5.5,7.5A3.5,3.5 0 0,1 9,4A3.5,3.5 0 0,1 12.5,7.5M15.94,13A5.32,5.32 0 0,1 18,17V19H22V17S22,13.37 15.94,13M15,4A3.39,3.39 0 0,0 13.07,4.59A5,5 0 0,1 13.07,10.41A3.39,3.39 0 0,0 15,11A3.5,3.5 0 0,0 18.5,7.5A3.5,3.5 0 0,0 15,4Z"/>
+                            </svg>
+                            <span>Giải Nhất viết bài giảng điện tử cấp Quốc gia</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <img src="https://images.unsplash.com/photo-1584554376766-ac0f2c65e949?w=500" alt="Teacher 4" class="teacher-image">
+                    <div class="teacher-info">
+                        <span class="teacher-subject">Tiếng Anh</span>
+                        <h3>ThS. Lê Hoàng Nam</h3>
+                        <div class="teacher-detail">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+                            </svg>
+                            <span>Thạc sĩ Ngôn ngữ Anh, ĐH Ngoại ngữ - ĐHQG HN</span>
+                        </div>
+                        <div class="teacher-detail">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16,17V19H2V17S2,13 9,13 16,17 16,17M12.5,7.5A3.5,3.5 0 0,1 9,11A3.5,3.5 0 0,1 5.5,7.5A3.5,3.5 0 0,1 9,4A3.5,3.5 0 0,1 12.5,7.5M15.94,13A5.32,5.32 0 0,1 18,17V19H22V17S22,13.37 15.94,13M15,4A3.39,3.39 0 0,0 13.07,4.59A5,5 0 0,1 13.07,10.41A3.39,3.39 0 0,0 15,11A3.5,3.5 0 0,0 18.5,7.5A3.5,3.5 0 0,0 15,4Z"/>
+                            </svg>
+                            <span>Chứng chỉ IELTS 8.5, Cambridge TKT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="lien-he">
+        <div class="container">
+            <div class="section-header">
+                <h2>Liên hệ</h2>
+                <p>Hãy liên hệ với chúng tôi để được tư vấn chi tiết</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Địa chỉ</h4>
+                            <p>123 Đường Láng, Phường Láng Thượng<br>Quận Đống Đa, Hà Nội, Việt Nam</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Điện thoại</h4>
+                            <p>Văn phòng: (024) 3851 2345<br>Hotline: 0912 345 678</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>info@thptaiquoc.edu.vn<br>tuyensinh@thptaiquoc.edu.vn</p>
+                        </div>
+                    </div>
+                    <div class="contact-card" style="background: linear-gradient(135deg, var(--light-blue), white);">
+                        <div style="width: 100%;">
+                            <h4 style="margin-bottom: 1rem;">Kết nối với chúng tôi</h4>
+                            <div class="social-links">
+                                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
+                                    </svg>
+                                </a>
+                                <a href="https://zalo.me" target="_blank" rel="noopener noreferrer" class="social-btn">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.096931033816!2d105.80894631476281!3d21.02804408599627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab4cd0c66f05%3A0xea31563511af2e54!2zxJDGsOG7nW5nIEzDoG5nLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1234567890123!5m2!1svi!2s"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 3L1 9L5 11.18V17.18L12 21L19 17.18V11.18L21 10.09V17H23V9L12 3M18.82 9L12 12.72L5.18 9L12 5.28L18.82 9M17 16L12 18.72L7 16V12.27L12 15L17 12.27V16Z"/>
+                        </svg>
+                    </div>
+                    <h4>THPT Ái Quốc</h4>
+                </div>
+                <p>Trường THPT hàng đầu tại Hà Nội, cam kết mang đến chất lượng giáo dục tốt nhất cho học sinh.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liên kết nhanh</h4>
+                <ul>
+                    <li><a href="#gioi-thieu">Giới thiệu</a></li>
+                    <li><a href="#chuong-trinh">Chương trình đào tạo</a></li>
+                    <li><a href="#tuyen-sinh">Tuyển sinh</a></li>
+                    <li><a href="#lien-he">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Chương trình học</h4>
+                <ul>
+                    <li>Khoa học Tự nhiên</li>
+                    <li>Khoa học Xã hội</li>
+                    <li>Chương trình Quốc tế</li>
+                    <li>Hoạt động ngoại khóa</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Liên hệ</h4>
+                <p>123 Đường Láng, Đống Đa, Hà Nội</p>
+                <p>(024) 3851 2345</p>
+                <p>info@thptaiquoc.edu.vn</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Trường THPT Ái Quốc. Bảo lưu mọi quyền.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Carousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+        const carouselSlides = document.getElementById('carouselSlides');
+        const carouselIndicators = document.getElementById('carouselIndicators');
+
+        // Create indicators
+        for (let i = 0; i < totalSlides; i++) {
+            const indicator = document.createElement('div');
+            indicator.classList.add('indicator');
+            if (i === 0) indicator.classList.add('active');
+            indicator.addEventListener('click', () => goToSlide(i));
+            carouselIndicators.appendChild(indicator);
+        }
+
+        function updateCarousel() {
+            carouselSlides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.querySelectorAll('.indicator').forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function moveSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Auto-play carousel
+        setInterval(() => {
+            moveSlide(1);
+        }, 5000);
+
+        // Form submission
+        const admissionForm = document.getElementById('admissionForm');
+        admissionForm.addEventListener('submit', function(e) {
+            // If not using formspree, prevent default and show alert
+            if (this.action.includes('your-form-id')) {
+                e.preventDefault();
+                alert('Cảm ơn bạn đã đăng ký! Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.\n\n(Lưu ý: Để form hoạt động, vui lòng thay thế "your-form-id" trong action của form bằng ID của bạn từ formspree.io)');
+                this.reset();
+            }
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
